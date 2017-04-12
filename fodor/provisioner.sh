@@ -16,5 +16,13 @@ bash script.deb.sh
 apt-get -y install gitlab-ce
 rm script.deb.sh
 
+
+echo "
+external_url '${DOMAIN}'
+gitlab_rails['smtp_enable'] = true
+gitlab_rails['gitlab_email_enabled'] = true
+gitlab_rails['gitlab_email_from'] = 'gitlab@${DOMAIN}'
+" > /etc/gitlab/gitlab.rb
+
 gitlab-ctl reconfigure
 
