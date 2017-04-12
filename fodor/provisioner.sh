@@ -39,3 +39,11 @@ nginx['ssl_certificate_key'] = '/etc/letsencrypt/live/${DOMAIN}/privkey.pem'
 " >> /etc/gitlab/gitlab.rb
 
 gitlab-ctl reconfigure
+
+
+echo "
+0 0 */3 * * root /usr/bin/letsencrypt renew >> /var/log/le-renew.log
+10 0 */3 * * root /usr/bin/gitlab-ctl restart nginx
+" > /etc/cron.d/letsencrypt
+
+chmod 644 /etc/cron.d/letsencrypt
