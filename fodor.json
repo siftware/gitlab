@@ -1,0 +1,31 @@
+{
+	"name": "fodorxyz/gitlab",
+	"installpath": "/tmp/gitlab/",
+	"provisioner": "fodor/provisioner.sh",
+	"text": {
+		"complete": "Your GitLab instance is now setup"
+	},
+	"links": [
+		{
+			"title": "GitLab",
+			"url": "http://{{DOMAIN}}/"
+		}
+	],
+	"size": {
+		"suggested": "4gb",
+		"required": "4gb"
+	},
+	"distro": "ubuntu-16-04-x64",
+	"description": "GitLab.org setup - host your own git repositories, safely, securely and privately",
+	"keywords": ["fodor", "git", "gitlab"],
+	"homepage": "https://github.com/fodorxyz/gitlab",
+	"inputs": [
+		{
+			"title": "Fake API Key",
+			"name": "fakeapikey",
+			"placeholder": "xxxx-xxxx-xxxx-xxxx",
+			"type": "regex",
+			"regex": "[a-zA-Z\\-0-9]+"
+		}
+	]
+}
