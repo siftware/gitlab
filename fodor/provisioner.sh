@@ -18,7 +18,7 @@ rm script.deb.sh
 
 
 echo "
-external_url '${DOMAIN}'
+external_url 'http://${DOMAIN}'
 gitlab_rails['smtp_enable'] = true
 gitlab_rails['gitlab_email_enabled'] = true
 gitlab_rails['gitlab_email_from'] = 'gitlab@${DOMAIN}'
