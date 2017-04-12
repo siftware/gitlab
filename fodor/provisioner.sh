@@ -17,6 +17,7 @@ apt-get -y install gitlab-ce
 rm script.deb.sh
 
 
+mkdir -p /var/www/letsencrypt
 echo "
 external_url 'https://${DOMAIN}'
 gitlab_rails['smtp_enable'] = true
@@ -30,7 +31,6 @@ gitlab-ctl reconfigure
 
 
 # SSL
-mkdir -p /var/www/letsencrypt
 letsencrypt certonly -a webroot -w /var/www/letsencrypt -d ${DOMAIN} --agree-tos --email ${ADMIN_EMAIL}
 
 echo "
