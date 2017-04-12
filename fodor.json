@@ -3,7 +3,7 @@
 	"installpath": "/tmp/gitlab/",
 	"provisioner": "fodor/provisioner.sh",
 	"text": {
-		"complete": "Your GitLab instance is now setup"
+		"complete": "Your GitLab instance is now setup.  The default user is 'root'"
 	},
 	"links": [
 		{
