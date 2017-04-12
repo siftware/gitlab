@@ -22,6 +22,7 @@ external_url 'http://${DOMAIN}'
 gitlab_rails['smtp_enable'] = true
 gitlab_rails['gitlab_email_enabled'] = true
 gitlab_rails['gitlab_email_from'] = 'gitlab@${DOMAIN}'
+gitlab_rails['smtp_enable_starttls_auto'] = false
 " > /etc/gitlab/gitlab.rb
 
 gitlab-ctl reconfigure
