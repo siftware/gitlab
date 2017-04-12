@@ -8,7 +8,7 @@
 	"links": [
 		{
 			"title": "GitLab",
-			"url": "http://{{DOMAIN}}/"
+			"url": "https://{{DOMAIN}}/"
 		}
 	],
 	"size": {
