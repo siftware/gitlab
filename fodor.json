@@ -21,5 +21,10 @@
 	"homepage": "https://github.com/fodorxyz/gitlab",
 	"image": "https://about.gitlab.com/images/press/screenshots/project-view.png",
 	"inputs": [
+		{
+			"title": "Admin Email",
+			"name": "admin_email",
+			"type": "email"
+		}
 	]
 }

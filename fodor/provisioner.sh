@@ -18,12 +18,24 @@ rm script.deb.sh
 
 
 echo "
-external_url 'http://${DOMAIN}'
+external_url 'https://${DOMAIN}'
 gitlab_rails['smtp_enable'] = true
 gitlab_rails['gitlab_email_enabled'] = true
 gitlab_rails['gitlab_email_from'] = 'gitlab@${DOMAIN}'
 gitlab_rails['smtp_enable_starttls_auto'] = false
+nginx['custom_gitlab_server_config'] = "location ^~ /.well-known { root /var/www/letsencrypt; }"
 " > /etc/gitlab/gitlab.rb
 
 gitlab-ctl reconfigure
 
+
+# SSL
+mkdir -p /var/www/letsencrypt
+letsencrypt certonly -a webroot -w /var/www/letsencrypt -d ${DOMAIN} --agree-tos --email ${ADMIN_EMAIL}
+
+echo "
+nginx['ssl_certificate'] = "/etc/letsencrypt/live/${DOMAIN}/fullchain.pem"
+nginx['ssl_certificate_key'] = "/etc/letsencrypt/live/${DOMAIN}/privkey.pem"
+" >> /etc/gitlab/gitlab.rb
+
+gitlab-ctl reconfigure
