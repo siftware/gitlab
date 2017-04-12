@@ -34,7 +34,7 @@ gitlab-ctl reconfigure
 # SSL
 letsencrypt certonly -a webroot -w /var/www/letsencrypt -d ${DOMAIN} --agree-tos --email ${ADMIN_EMAIL}
 
-sed -i "s/external_url.*/external_url 'https://${DOMAIN}'/g" /etc/gitlab/gitlab.rb
+sed -i -e "s/external_url.*/external_url 'https://${DOMAIN}'/g" /etc/gitlab/gitlab.rb
 
 echo "
 nginx['ssl_certificate'] = '/etc/letsencrypt/live/${DOMAIN}/fullchain.pem'
