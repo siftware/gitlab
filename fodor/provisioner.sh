@@ -8,7 +8,7 @@ apt-get -y install ca-certificates curl postfix letsencrypt
 ufw allow OpenSSH
 ufw allow http
 ufw allow https
-ufw enable
+yes | ufw enable
 
 curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
 bash script.deb.sh
