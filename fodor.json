@@ -19,6 +19,7 @@
 	"description": "GitLab.org setup - host your own git repositories, safely, securely and privately",
 	"keywords": ["fodor", "git", "gitlab"],
 	"homepage": "https://github.com/fodorxyz/gitlab",
+	"image": "https://about.gitlab.com/images/press/screenshots/project-view.png",
 	"inputs": [
 		{
 			"title": "Fake API Key",
