@@ -50,3 +50,20 @@ echo "
 " > /etc/cron.d/letsencrypt
 
 chmod 644 /etc/cron.d/letsencrypt
+
+echo "APT::Periodic::Update-Package-Lists \"1\";
+APT::Periodic::Download-Upgradeable-Packages \"1\";
+APT::Periodic::AutocleanInterval \"1\";
+APT::Periodic::Unattended-Upgrade \"1\";" > /etc/apt/apt.conf.d/10periodic
+
+echo "Unattended-Upgrade::Allowed-Origins {
+    \"${distro_id}:${distro_codename}-security\";
+    \"*packages.gitlab.com/gitlab/gitlab-ce:${distro_codename}\";
+};
+
+Unattended-Upgrade::Package-Blacklist {
+    //
+};
+
+Unattended-Upgrade::Mail \"root@localhost\";
+" >  /etc/apt/apt.conf.d/50unattended-upgrades
