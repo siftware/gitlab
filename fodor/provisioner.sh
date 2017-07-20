@@ -66,7 +66,7 @@ Unattended-Upgrade::Package-Blacklist {
     //
 };
 
-Unattended-Upgrade::Mail \"root@localhost\";
+Unattended-Upgrade::Mail \"${ADMIN_EMAIL}\";
 " >  /etc/apt/apt.conf.d/50unattended-upgrades
 
 
