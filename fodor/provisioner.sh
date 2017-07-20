@@ -70,5 +70,7 @@ Unattended-Upgrade::Mail \"root@localhost\";
 " >  /etc/apt/apt.conf.d/50unattended-upgrades
 
 
-echo "0 2 * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
+echo "0 2 * * * root /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
 " > /etc/cron.d/gitlab_backup
+
+/etc/init.d/cron restart
