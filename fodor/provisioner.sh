@@ -24,6 +24,7 @@ echo "external_url 'http://${DOMAIN}'
 gitlab_rails['smtp_enable'] = true
 gitlab_rails['gitlab_email_enabled'] = true
 gitlab_rails['gitlab_email_from'] = 'gitlab@${DOMAIN}'
+gitlab_rails['backup_keep_time'] = 604800
 gitlab_rails['smtp_enable_starttls_auto'] = false
 nginx['custom_gitlab_server_config'] = 'location ^~ /.well-known { root /var/www/letsencrypt; }'
 " > /etc/gitlab/gitlab.rb
