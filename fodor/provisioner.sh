@@ -63,7 +63,7 @@ echo "Unattended-Upgrade::Allowed-Origins {
     \"${distro_id}:${distro_codename}-updates\";
     \"${distro_id}:${distro_codename}-backports\";
 
-    \"origin=packages.gitlab.com/gitlab/gitlab-ce,archive=${distro_codename}\";
+    \"*packages.gitlab.com/gitlab/gitlab-ce:${distro_codename}\";
 };
 
 Unattended-Upgrade::Package-Blacklist {
