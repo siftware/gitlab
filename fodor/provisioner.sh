@@ -58,8 +58,12 @@ APT::Periodic::AutocleanInterval \"1\";
 APT::Periodic::Unattended-Upgrade \"1\";" > /etc/apt/apt.conf.d/10periodic
 
 echo "Unattended-Upgrade::Allowed-Origins {
+    \"${distro_id}:${distro_codename}\";
     \"${distro_id}:${distro_codename}-security\";
-    \"*packages.gitlab.com/gitlab/gitlab-ce:${distro_codename}\";
+    \"${distro_id}:${distro_codename}-updates\";
+    \"${distro_id}:${distro_codename}-backports\";
+
+    \"origin=packages.gitlab.com/gitlab/gitlab-ce,archive=${distro_codename}\";
 };
 
 Unattended-Upgrade::Package-Blacklist {
