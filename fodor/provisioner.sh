@@ -81,7 +81,7 @@ echo "0 2 * * * root /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
 
 # Backup GitLab configuration to /backups/gitlab-config/
 mkdir -p /backups/gitlab-config/
-echo "15 04 * * 2-6 root umask 0077; tar cfz /backups/gitlab-config/$(date "+etc-gitlab-\%s.tar") -C / etc/gitlab
+echo "15 04 * * * root umask 0077; tar cfz /backups/gitlab-config/$(date "+etc-gitlab-\%s.tar") -C / etc/gitlab
 " > /etc/cron.d/gitlab_config_backup
 
 /etc/init.d/cron restart
